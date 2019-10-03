@@ -15,7 +15,6 @@ var stamina = 3
 func _ready():
 	$ProgressBar.max_value = stamina_max
 	$ProgressBar.value = stamina
-	pass
 
 func _process(_delta):
 	$ProgressBar.value = stamina

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/trees_border.png-b82445731c7d458a0cf478e5a9f32d33.stex"
+path="res://.import/nav_mesh.png-49db0c6eb2b83dc4f1e6048c47b57e8f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/trees_border.png"
-dest_files=[ "res://.import/trees_border.png-b82445731c7d458a0cf478e5a9f32d33.stex" ]
+source_file="res://images/level_1/nav_mesh.png"
+dest_files=[ "res://.import/nav_mesh.png-49db0c6eb2b83dc4f1e6048c47b57e8f.stex" ]
 
 [params]
 

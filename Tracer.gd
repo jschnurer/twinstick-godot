@@ -32,8 +32,6 @@ func discover_collision():
 	var collider = $Ray.get_collider()
 	end_point = to_local($Ray.get_collision_point())
 	
-	print (collider.name)
-	
 	if collider.is_in_group("terrain"):
 		return
 	
