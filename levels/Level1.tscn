@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://images/grass.png" type="Texture" id=1]
 [ext_resource path="res://images/trees.png" type="Texture" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://images/trees_bottom_right.png" type="Texture" id=4]
 [ext_resource path="res://images/trees_top_left.png" type="Texture" id=5]
 [ext_resource path="res://images/trees_top_right.png" type="Texture" id=6]
-[ext_resource path="res://Dude.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Target.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Dude.tscn" type="PackedScene" id=8]
 
 [node name="Level1" type="Node2D"]
 
@@ -18,111 +19,154 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+[node name="Terrain" type="StaticBody2D" parent="." groups=[
 "terrain",
 ]]
 editor/display_folded = true
 
-[node name="trees" type="Sprite" parent="StaticBody2D"]
+[node name="trees" type="Sprite" parent="Terrain"]
 position = Vector2( 512, 300 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="trees_bottom_left" type="Sprite" parent="StaticBody2D"]
+[node name="trees_bottom_left" type="Sprite" parent="Terrain"]
+visible = false
 position = Vector2( 256, 450 )
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="trees_bottom_right" type="Sprite" parent="StaticBody2D"]
+[node name="trees_bottom_right" type="Sprite" parent="Terrain"]
+visible = false
 position = Vector2( 768, 450 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="trees_top_left" type="Sprite" parent="StaticBody2D"]
+[node name="trees_top_left" type="Sprite" parent="Terrain"]
+visible = false
 position = Vector2( 256, 150 )
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="trees_top_right" type="Sprite" parent="StaticBody2D"]
+[node name="trees_top_right" type="Sprite" parent="Terrain"]
+visible = false
 position = Vector2( 768, 150 )
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Terrain"]
+visible = false
 position = Vector2( 512, 300 )
 polygon = PoolVector2Array( 277, -98.9, 277, -97.2, 289, -91.2, 289, -89.8, 301, -77.8, 301, -75.5, 308, -61.5, 308, -54.6, 303.4, -42, 301.9, -42, 296.9, -36, 294.4, -36, 282, -31.6, 277.2, -22, 275.7, -22, 261.7, -10, 240.7, -10, 224, -15.6, 224, -17.1, 211, -28.1, 211, -30.4, 207, -36.4, 207, -40.6, 205.4, -48, 197, -58.3, 197, -62, 195.8, -76, 197.6, -76, 201.6, -87, 203.2, -87, 211.2, -95, 214.6, -95, 228, -97.4, 228, -95.4, 240.7, -90.6, 258, -98.3, 258, -100.1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Terrain"]
+visible = false
 position = Vector2( 512, 300 )
 polygon = PoolVector2Array( -134, -84.8, -134, -83.2, -119, -76.3, -119, -74.7, -114.1, -69, -110.7, -69, -89, -61.4, -89, -59.8, -77, -47.8, -77, -45.3, -73.5, -34, -72.9, -34, -65, -20.5, -65, -16, -63.9, 4, -65.5, 4, -70.5, 20, -72, 20, -78, 27.7, -78, 33.4, -84.7, 49, -86.1, 49, -94.1, 58, -96.5, 58, -110.5, 66, -117.1, 66, -141, 62.7, -141, 61.3, -152, 55.2, -152, 53.8, -160.9, 44, -165.3, 44, -187, 36.4, -187, 34.7, -198, 20.7, -198, 15, -198.9, 2.89999, -206, -4.20001, -206, -6.70001, -209, -13.6, -209, -21.2, -207.6, -27, -206.1, -27, -194, -46.6, -194, -51.4, -186.3, -69, -184.9, -69, -171.8, -81, -169.3, -81, -156, -85.4, -156, -87.2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Terrain"]
+visible = false
 position = Vector2( 512, 300 )
 polygon = PoolVector2Array( -337, 24.1, -337, 25.9, -329, 30.9, -329, 33.4, -322, 43, -312.5, 43, -305, 46.8, -305, 48.3, -299, 56.3, -299, 63.2, -300.6, 70.4, -296.8, 78, -295.6, 78, -279, 84.6, -279, 86.5, -273.8, 97, -273.1, 97, -265.1, 106, -264, 106, -242, 105, -242, 107, -235, 112, -235, 114.5, -230.8, 123, -228.4, 123, -210.4, 135, -205.6, 135, -191, 140.6, -191, 142.2, -181.2, 152, -176.5, 152, -171, 154.8, -171, 156.3, -164, 164.2, -164, 175, -166, 175, -173, 185, -175.7, 185, -187, 186.7, -198.4, 194, -201.9, 194, -208, 195.5, -216.3, 203, -220.7, 203, -226, 204.8, -226, 202.7, -232, 201.7, -232, 199.7, -239, 191, -242.4, 191, -252, 187.4, -252, 185.7, -262, 173, -281, 173, -281, 170.7, -288, 162.8, -288, 156, -288.8, 156, -290.8, 154, -300.3, 154, -308.3, 160, -317.5, 160, -323, 157.2, -323, 155.7, -330, 147.8, -330, 137.5, -336.2, 126, -341.4, 126, -354, 121.4, -354, 119.9, -363, 111.9, -363, 109.3, -367.7, 82, -369, 82, -383, 63.7, -383, 38, -381.1, 38, -373.1, 26, -370.4, 26, -367, 24.6, -367, 22.9 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Terrain"]
+visible = false
 position = Vector2( 512, 300 )
 polygon = PoolVector2Array( 262, 72.3, 262, 74.1, 276.7, 87, 289.4, 87, 302, 92.7, 302, 94.2, 332, 125.2, 332, 127.4, 336, 133.4, 336, 144, 334.5, 144, 332.5, 151, 330.7, 151, 321.8, 159, 318.3, 159, 294, 162.3, 294, 160.5, 268, 152.5, 268, 151.2, 246, 140.2, 246, 138.9, 234, 128.9, 234, 126.8, 221, 113.8, 221, 111.5, 218, 106.6, 218, 96.6, 225.6, 76, 227.4, 76, 237, 70.7, 237, 68.7 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Terrain"]
+visible = false
 position = Vector2( 512, 300 )
 polygon = PoolVector2Array( 133, 115.5, 144, 118.5, 144, 120.3, 154, 133.3, 154, 145.7, 141, 162, 138.7, 162, 119.7, 176, 116.1, 176, 97.3, 181, 80, 181, 64.6, 191, 43, 191, 43, 189.4, 23, 181.4, 23, 179.9, 16, 173.9, 16, 171.3, 11.3, 156, 13.4, 156, 15.4, 147, 17, 147, 23, 139, 25.3, 139, 44.4, 126, 47.7, 126, 62, 123.6, 62, 125.5, 81.4, 131.4, 98, 125.6, 98, 124.8, 114, 115.9, 114, 114, 133, 114 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain"]
+visible = false
 position = Vector2( 256, 150 )
 polygon = PoolVector2Array( 256, -114, 250.9, -114, 240, -114.8, 240, -114.1, 219.8, -95, 216.2, -95, 196, -92.8, 196, -94.5, 170, -102.5, 170, -104.1, 153.2, -118.4, 139.8, -105, 137.1, -105, 123, -101.5, 123, -100, 124.3, -91, 122.5, -91, 118.5, -77, 117, -77, 110, -68, 107.6, -68, 98, -61.9, 98, -58.6, 92.3, -45, 90.9, -45, 80.9, -34, 78.5, -34, 71, -29.9, 71, -28.7, 64.5, -7, 62.9, -7, 54.9, 2, 52.5, 2, 46, 5.3, 46, 8.7, 32, 27, 29.5, 27, 20.5, 32, 16.2, 32, 7.89999, 32.8, -1, 45, -3.3, 45, -11.3, 51, -14.9, 51, -34, 52.1, -34, 50.5, -47, 46.5, -47, 45, -57, 37, -57, 34.8, -63, 28.8, -63, 26.4, -66.3, 19, -67.6, 19, -83, 8, -83, 5.5, -94, -13.5, -94, -18, -99.3, -57, -97.7, -57, -94.6, -71, -93.1, -71, -88, -79.5, -88, -82.1, -86.1, -109, -95.2, -115, -105.2, -106, -108.8, -106, -124, -104.8, -124, -106.3, -134, -108.4, -134, -109.7, -168.5, -127, -172.2, -127, -195.3, -131, -205.6, -131, -209, -130.3, -215, -123.3, -215, -118.6, -219.7, -108, -221.2, -108, -228.2, -101, -231.7, -101, -233, -100.6, -233, -98.7, -236, -88.7, -236, -81, -235.1, -62, -225, -40.4, -225, -21, -216, -1.39999, -216, 45, -217.6, 45, -228.4, 72.8, -214, 101.5, -214, 106.4, -220, 122.4, -220, 125.5, -216, 133.5, -216, 150, -256, 150, -256, -150, 256, -150 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Terrain"]
+visible = false
 position = Vector2( 256, 450 )
 polygon = PoolVector2Array( -216, -146.7, -216.5, -145.3, -210, -137.7, -210, -135.4, -206, -125.4, -206, -118.8, -209.4, -103, -210.9, -103, -214, -97.5, -214, -93.6, -208, -82.5, -208, -60.8, -209.4, -54, -210.5, -54, -215.5, -38, -217.1, -38, -230, -24.1, -230, -16, -229, -16, -212, 5.3, -212, 7.60001, -205.6, 24, -204.9, 24, -196, 37.4, -196, 51, -197.6, 51, -201.6, 63, -203.2, 63, -213, 72.8, -213, 91.4, -223, 115, -191, 115, -170.3, 109, -141, 109, -141, 110.5, -126.7, 115, -123.1, 115, -94, 112.8, -94, 114.7, -84.6, 119, -80.3, 119, -71.3, 116, -46, 116, -46, 117.2, -38, 118.2, -38, 119.9, -23.5, 128, -20.1, 128, -5.3, 124, 9.10001, 124, 25, 126.3, 25, 127.5, 38, 130.4, 38, 131.8, 51.5, 139, 54.7, 139, 65, 137.3, 94.5, 120, 97.7, 120, 110.7, 116, 125.3, 116, 143.6, 122.4, 146, 121.6, 146, 108.8, 146.5, 106, 131, 87.7, 131, 84, 128.8, 62, 130.6, 62, 133.6, 53, 135.3, 53, 144, 46, 144, 32.6, 151.7, 14, 153.1, 14, 166.2, 2, 169.7, 2, 186, -0.300003, 186, 2, 200, 12, 200, 14.5, 203, 19.4, 203, 35, 203.7, 35, 216, 45.1, 216, 47.5, 220, 55.5, 220, 64.4, 213.3, 79, 211.7, 79, 203, 86.9, 203, 93, 202.1, 120, 202.8, 120, 211.7, 128, 214, 128, 233.6, 119, 239.9, 119, 256, 117.9, 256, 150, -256, 150, -256, -150, -216, -150 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Terrain"]
+visible = false
 position = Vector2( 768, 450 )
 polygon = PoolVector2Array( 256, 150, -256, 150, -256, 118, -251.7, 118, -236, 123.6, -236, 125, -227.5, 131, -225.7, 131, -208.7, 118, -205.2, 118, -182, 115.8, -182, 117.5, -171, 120.5, -171, 122.1, -161.3, 131, -145.4, 124, -132.5, 124, -120.5, 130, -115.3, 130, -106.3, 127, -85, 127, -85, 128.3, -72, 130.6, -52.3, 124, -35, 124, -35, 125.5, -21.7, 129.4, 6.70001, 121, 22, 121, 22, 122.7, 42.8, 131.4, 66.6, 121, 73.1, 121, 92, 123.7, 122.7, 113, 135.2, 113, 147.3, 115.6, 163.6, 108, 177.5, 108, 190, 114.8, 190, 116.3, 194.9, 122, 195.7, 122, 212.6, 115, 225.3, 115, 230.6, 116.6, 234, 113.2, 234, 111, 232.8, 96, 234.5, 96, 236.5, 89.4, 227, 72.5, 227, 59.7, 229.6, 50.4, 214, 34.8, 214, 32.5, 210, 25.5, 210, 20, 208.8, 9, 210.6, 9, 216.6, -7, 218.2, -7, 234, -22.8, 222, -37.3, 222, -41, 218.4, -54, 220.5, -54, 223.4, -66, 225.2, -66, 234, -74.8, 234, -77.6, 229, -91.7, 229, -99.3, 231.5, -108, 232.9, -108, 243, -123.1, 216, -147.1, 216, -150, 256, -150 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Terrain"]
+visible = false
 position = Vector2( 768, 150 )
 polygon = PoolVector2Array( 256, 150, 214.6, 150, 211, 139.3, 211, 133.8, 212.4, 127, 213.8, 127, 222, 110.5, 222, 107.4, 218.6, 89, 220.6, 89, 223.6, 80, 225.3, 80, 239, 69, 239, 65.8, 240.6, 58.5, 228, 50.1, 228, 47.4, 223, 36.4, 223, 25.9, 224.1, 5, 225.9, 5, 234.1, -8.10001, 221, -24.3, 221, -26.6, 217, -35.6, 217, -45.4, 222.4, -58.8, 211, -73.3, 211, -94.2, 198, -106.1, 198, -108.5, 191.9, -119, 183.5, -115, 174.4, -115, 171, -114.3, 171, -113.7, 155.4, -107, 139.6, -107, 126.6, -113, 98, -113, 98, -114.7, 87.5, -120, 84.5, -120, 67.4, -112, 57.7, -112, 38.4, -117.5, 19.6, -106, 16.4, -106, 8.39999, -103, -14.3, -103, -41.5, -110.6, -54.4, -102, -73.4, -102, -89.4, -108, -90.6, -108, -101.6, -103, -111.3, -103, -126, -107.5, -126, -109, -142, -121, -142, -123.5, -143.4, -127, -169.7, -119, -184.5, -119, -194.1, -124.2, -214.3, -108, -228.6, -108, -239.6, -115, -244.8, -115, -256, -114, -256, -150, 256, -150 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Dude" parent="." instance=ExtResource( 7 )]
-position = Vector2( 71, 69 )
+[node name="Target" parent="." instance=ExtResource( 7 )]
+position = Vector2( 226, 503 )
+
+[node name="Target5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 869, 80 )
+
+[node name="Target7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 953, 233 )
+
+[node name="Target6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 626, 506 )
+
+[node name="Target2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 72, 261 )
+
+[node name="Target3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 470, 339 )
+
+[node name="Target8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 645, 250 )
+
+[node name="Target9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 845, 502 )
+
+[node name="Target10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 952, 503 )
+
+[node name="Target4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 576, 65 )
+
+[node name="Dude" parent="." instance=ExtResource( 8 )]
+position = Vector2( 91, 149 )
 
 [node name="Camera2D" type="Camera2D" parent="Dude"]
 current = true

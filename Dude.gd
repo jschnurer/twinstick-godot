@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var bullet_scene = preload("res://Bullet.tscn")
+var tracer_scene = preload("res://Tracer.tscn")
 
 var velocity = Vector2(0, 0)
 var speed = 160
@@ -51,10 +51,24 @@ func shoot_bullet():
 		return
 	
 	is_shooting = false
-	var bullet = bullet_scene.instance()
-	bullet.position = position + Vector2(21 * shoot_velocity.x, 21 * shoot_velocity.y)
-	bullet.velocity = shoot_velocity
-	get_parent().add_child(bullet)
+	
+	var tracer = tracer_scene.instance()
+	tracer.position = position + Vector2(14 * shoot_velocity.x, 14 * shoot_velocity.y)
+	tracer.velocity = shoot_velocity
+	get_parent().add_child(tracer)
+	get_parent().move_child(tracer, 1)
+	
+	#var bullet = bullet_scene.instance()
+	#bullet.position = position + Vector2(21 * shoot_velocity.x, 21 * shoot_velocity.y)
+	#bullet.velocity = shoot_velocity
+	#get_parent().add_child(bullet)
+	
+	
+	#raycast in direction
+	# find collision point or edge of camera
+	#draw line from you to collision point
+	#start line timer to disappear it
+	
 	start_cooldown()
 
 func sprite_loop():
