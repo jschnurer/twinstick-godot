@@ -176,4 +176,4 @@ position = Vector2( 0, 1 )
 navpoly = SubResource( 1 )
 
 [node name="Goomba" parent="." instance=ExtResource( 9 )]
-position = Vector2( 267, 270 )
+position = Vector2( 896, 230 )
