@@ -3,6 +3,7 @@
 [ext_resource path="res://Tracer.gd" type="Script" id=1]
 
 [node name="Tracer" type="Line2D"]
+modulate = Color( 1, 1, 1, 0.670588 )
 width = 1.0
 default_color = Color( 0.729412, 0.729412, 0.729412, 1 )
 script = ExtResource( 1 )

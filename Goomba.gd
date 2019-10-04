@@ -8,6 +8,7 @@ var current_point
 var target_direction : Vector2
 var velocity : Vector2
 var speed : int = 75
+var health = 5
 
 func _ready():
 	dude = get_parent().get_node("Dude")
@@ -40,3 +41,16 @@ func move_along_path(delta):
 				current_point = path[target_ix]
 			else:
 				current_point = null
+
+func take_damage(amount):
+	health -= amount
+	if health <= 0:
+		queue_free()
+	else:
+		show_damage()
+
+func show_damage():
+	if $Tween.is_processing():
+		$Tween.stop()
+	$Tween.interpolate_property(self, "modulate", Color(1, 0, 0, 1), Color(1, 1, 1, 1), .15, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.start()
