@@ -4,7 +4,7 @@
 [ext_resource path="res://images/goomba.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 12.0363, 11.9017 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "walk"
