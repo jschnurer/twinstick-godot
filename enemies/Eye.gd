@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var dir_sprite = preload("res://images/enemies/eye/eye_left.png")
 var nav : Navigation2D
 var dude
 var path : PoolVector2Array
@@ -37,12 +38,19 @@ func move_along_path(delta):
 		if current_point.distance_to(position) > 0:
 			velocity = (current_point - position).normalized() * speed
 			move_and_slide(velocity)
+			update_sprite(current_point)
 		else:
 			if target_ix < path.size() - 1:
 				target_ix += 1
 				current_point = path[target_ix]
 			else:
 				current_point = null
+
+func update_sprite(target_point):
+	if target_point == position:
+		return
+	
+	rotation = (current_point - position).angle() + 135
 
 func take_damage(amount):
 	health -= amount
@@ -60,4 +68,5 @@ func show_damage():
 func _on_Detection_body_entered(body):
 	if body == dude:
 		is_active = true
+		$Sprite.texture = dir_sprite
 		$Detection.queue_free()
