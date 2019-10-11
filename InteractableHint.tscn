@@ -33,6 +33,7 @@ text = "E"
 align = 1
 
 [node name="Tween" type="Tween" parent="."]
+pause_mode = 2
 [connection signal="body_entered" from="." to="." method="_on_InteractableHint_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_InteractableHint_body_exited"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
