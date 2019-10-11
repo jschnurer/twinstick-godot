@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://InteractableHint.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.2242
+height = 39.5508
+
+[node name="InteractableHint" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="HintArea" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Hint" type="ColorRect" parent="."]
+visible = false
+margin_left = -4.0
+margin_top = -40.0
+margin_right = 5.0
+margin_bottom = -26.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Hint"]
+margin_left = 0.764496
+margin_top = 0.829773
+margin_right = 7.7645
+margin_bottom = 14.8298
+text = "E"
+align = 1
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_InteractableHint_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_InteractableHint_body_exited"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

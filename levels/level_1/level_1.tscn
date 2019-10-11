@@ -1,0 +1,154 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://images/levels/1/CityBG.png" type="Texture" id=1]
+[ext_resource path="res://props/Fire.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/level_1/DeadScientist.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Dude.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 362, 91 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 230, 236 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 230, 285 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 359, 285 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 359, 167 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 343, 31 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 19.2224, 97.7791 )
+
+[sub_resource type="NavigationPolygon" id=8]
+vertices = PoolVector2Array( 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 725.255, 1069.91, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 943.628, 1193.9, 943.628, 610.957, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166, 723.405, 340.767, 1339.66, 474.012, 1376.67, 610.957, 941.778, 472.161, 730.256, 12.966, 940.756, 15.83, 59.0325, 1062.51, 33.1238, 968.127 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 7, 6, 3, 8 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 13, 14, 8, 15 ), PoolIntArray( 12, 11, 16, 17, 15, 2 ), PoolIntArray( 2, 15, 8, 3 ), PoolIntArray( 0, 3, 18, 19 ) ]
+outlines = [ PoolVector2Array( 730.256, 12.966, 940.756, 15.83, 941.778, 472.161, 1339.66, 474.012, 1376.67, 610.957, 943.628, 610.957, 943.628, 1193.9, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 725.255, 1069.91, 59.0325, 1062.51, 33.1238, 968.127, 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 723.405, 340.767, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166 ) ]
+
+[node name="Navigation2D" type="Navigation2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Terrain" type="StaticBody2D" parent="."]
+editor/display_folded = true
+visible = false
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 354, 91 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1177, 231 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1179, 904 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 358, 634 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 359, 1240 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1060, 1364 )
+shape = SubResource( 6 )
+
+[node name="RubbleCollision" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1382.02, 535.811 )
+rotation = -0.306498
+shape = SubResource( 7 )
+
+[node name="RubbleCollision2" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1385.19, 1270.44 )
+rotation = -0.306498
+shape = SubResource( 7 )
+
+[node name="RubbleCollision3" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 25.4127, 274.01 )
+rotation = -0.306498
+shape = SubResource( 7 )
+
+[node name="RubbleCollision4" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 12.1163, 1007.53 )
+rotation = -0.306498
+shape = SubResource( 7 )
+
+[node name="RubbleCollision5" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( -38.1912, 976.727 )
+rotation = 1.04674
+shape = SubResource( 7 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+visible = false
+navpoly = SubResource( 8 )
+
+[node name="Fires" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 23.6616, 935.159 )
+
+[node name="Fire" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( -10.0451, -752.555 )
+
+[node name="Fire2" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( 10.4372, -632.587 )
+
+[node name="Fire4" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( -11.9958, -600.4 )
+
+[node name="Fire5" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( 1354.69, -408.628 )
+
+[node name="Fire6" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( 1343.25, -461.884 )
+
+[node name="Fire7" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( 1369.21, -352.292 )
+
+[node name="Fire8" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( 1343.16, 268.998 )
+
+[node name="Fire9" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( 1363.33, 371.099 )
+
+[node name="Fire10" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( -11.3445, 2.521 )
+
+[node name="Fire11" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( 8.82349, 123.529 )
+
+[node name="Fire12" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( -18.2773, 63.025 )
+
+[node name="Fire3" parent="Fires" instance=ExtResource( 2 )]
+position = Vector2( -16.3849, -711.102 )
+
+[node name="DeadScientist" parent="." instance=ExtResource( 3 )]
+
+[node name="Dude" parent="." groups=[
+"dude",
+] instance=ExtResource( 4 )]
+position = Vector2( 100.238, 1005.25 )
+
+[node name="Camera2D" type="Camera2D" parent="Dude"]
+current = true
+zoom = Vector2( 0.5, 0.5 )

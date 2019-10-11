@@ -67,6 +67,7 @@ func movement_loop(delta):
 		if stamina <= 0:
 			stop_running()
 			
+# warning-ignore:return_value_discarded
 	move_and_slide(velocity.normalized() * spd)
 
 func shoot_bullet():
