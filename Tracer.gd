@@ -3,6 +3,7 @@ extends Line2D
 var velocity = Vector2(0, 0)
 var start_point = Vector2(0, 0)
 var end_point = Vector2(0, 0)
+var ray_length = 500
 export var shot_spread = 32
 var damage = 1
 
@@ -22,7 +23,7 @@ func _ready():
 	$Tween.start()
 
 func discover_collision():
-	$Ray.cast_to = start_point + velocity * 275 + Vector2(rand_range(-shot_spread, shot_spread), rand_range(-shot_spread, shot_spread))
+	$Ray.cast_to = start_point + velocity * ray_length + Vector2(rand_range(-shot_spread, shot_spread), rand_range(-shot_spread, shot_spread))
 	$Ray.force_update_transform()
 	$Ray.force_raycast_update()
 	if !$Ray.is_colliding():

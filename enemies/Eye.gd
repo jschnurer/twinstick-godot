@@ -58,6 +58,9 @@ func take_damage(amount):
 		queue_free()
 	else:
 		show_damage()
+	
+	if !is_active:
+		become_active()
 
 func show_damage():
 	if $Tween.is_processing():
@@ -65,8 +68,11 @@ func show_damage():
 	$Tween.interpolate_property(self, "modulate", Color(1, 0, 0, 1), Color(1, 1, 1, 1), .15, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
 
+func become_active():
+	is_active = true
+	$Sprite.texture = dir_sprite
+	$Detection.queue_free()
+
 func _on_Detection_body_entered(body):
 	if body == dude:
-		is_active = true
-		$Sprite.texture = dir_sprite
-		$Detection.queue_free()
+		become_active()
