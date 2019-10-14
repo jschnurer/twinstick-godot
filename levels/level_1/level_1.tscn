@@ -1,12 +1,16 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://levels/level_1/level_1.gd" type="Script" id=1]
 [ext_resource path="res://images/levels/1/CityBG.png" type="Texture" id=2]
-[ext_resource path="res://props/Fire.tscn" type="PackedScene" id=3]
-[ext_resource path="res://levels/level_1/DeadScientist.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Utilities/InteractMessage.gd" type="Script" id=5]
-[ext_resource path="res://player/Dude.tscn" type="PackedScene" id=6]
-[ext_resource path="res://enemies/Eye.tscn" type="PackedScene" id=7]
+[ext_resource path="res://images/levels/1/Entrance.png" type="Texture" id=3]
+[ext_resource path="res://props/Fire.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/level_1/DeadScientist.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Utilities/InteractMessage.gd" type="Script" id=6]
+[ext_resource path="res://images/props/key_reader.png" type="Texture" id=7]
+[ext_resource path="res://levels/level_1/KeyReader.gd" type="Script" id=8]
+[ext_resource path="res://Utilities/InteractableHint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://player/Dude.tscn" type="PackedScene" id=10]
+[ext_resource path="res://enemies/Eye.tscn" type="PackedScene" id=11]
 
 [sub_resource type="NavigationPolygon" id=8]
 vertices = PoolVector2Array( 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 725.255, 1069.91, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 943.628, 1193.9, 943.628, 610.957, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166, 723.405, 340.767, 1339.66, 474.012, 1376.67, 610.957, 941.778, 472.161, 730.256, 12.966, 940.756, 15.83, 59.0325, 1062.51, 33.1238, 968.127 )
@@ -33,6 +37,13 @@ extents = Vector2( 343, 31 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 19.2224, 97.7791 )
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 14.9219
+height = 15.8403
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 113.147, 24.5191 )
 
 [node name="Level_1_City" type="Navigation2D"]
 script = ExtResource( 1 )
@@ -98,10 +109,19 @@ position = Vector2( -38.1912, 976.727 )
 rotation = 1.04674
 shape = SubResource( 7 )
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="City" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Entrance" type="TextureRect" parent="."]
+margin_left = -1.0
+margin_top = -1400.0
+margin_right = 1399.0
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -110,71 +130,108 @@ __meta__ = {
 editor/display_folded = true
 position = Vector2( 23.6616, 935.159 )
 
-[node name="Fire" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( -10.0451, -752.555 )
 
-[node name="Fire2" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire2" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( 10.4372, -632.587 )
 
-[node name="Fire4" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire4" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( -11.9958, -600.4 )
 
-[node name="Fire5" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire5" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( 1354.69, -408.628 )
 
-[node name="Fire6" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire6" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( 1343.25, -461.884 )
 
-[node name="Fire7" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire7" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( 1369.21, -352.292 )
 
-[node name="Fire8" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire8" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( 1343.16, 268.998 )
 
-[node name="Fire9" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire9" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( 1363.33, 371.099 )
 
-[node name="Fire10" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire10" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( -11.3445, 2.521 )
 
-[node name="Fire11" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire11" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( 8.82349, 123.529 )
 
-[node name="Fire12" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire12" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( -18.2773, 63.025 )
 
-[node name="Fire3" parent="Fires" instance=ExtResource( 3 )]
+[node name="Fire3" parent="Fires" instance=ExtResource( 4 )]
 position = Vector2( -16.3849, -711.102 )
 
-[node name="DeadScientist1" parent="." instance=ExtResource( 4 )]
+[node name="DeadScientist1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 985.703, 495.58 )
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 message = "This dead dude looks like a scientist. Could he be from EnigmaTech? Are they who caused all this? The facility is up north. I should check it out."
+
+[node name="DeadScientist2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 101.491, 213.031 )
+script = ExtResource( 6 )
+message = "He's dead. Looks like he died running."
+
+[node name="DeadScientist3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 896.736, -310.848 )
+script = ExtResource( 6 )
+message = "Another dead scientist. Looks like he was trying to get back inside EnigmaTech."
+
+[node name="KeyReader" type="Sprite" parent="."]
+position = Vector2( 967.327, -356.133 )
+texture = ExtResource( 7 )
+script = ExtResource( 8 )
+no_card_message = "It's a keycard reader. It probably controls the gate. Maybe I can find a keycard around here somewhere."
+card_message = "Open sesame."
+gate_already_open_message = "The gate's already open. I don't need to use this anymore."
+
+[node name="InteractableHint" parent="KeyReader" instance=ExtResource( 9 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyReader/InteractableHint"]
+position = Vector2( 0, 4.61035 )
+shape = SubResource( 9 )
+
+[node name="Gate" type="ColorRect" parent="."]
+margin_left = 725.0
+margin_top = -396.0
+margin_right = 951.0
+margin_bottom = -347.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Gate"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/StaticBody2D"]
+position = Vector2( 113.05, 24.5074 )
+shape = SubResource( 10 )
 
 [node name="Dude" parent="." groups=[
 "dude",
-] instance=ExtResource( 6 )]
+] instance=ExtResource( 10 )]
 position = Vector2( 100.238, 1005.25 )
 
 [node name="Enemies" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Eye" parent="Enemies" instance=ExtResource( 7 )]
+[node name="Eye" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 593.624, 1012.08 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"
 
-[node name="Eye2" parent="Enemies" instance=ExtResource( 7 )]
+[node name="Eye2" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 886.224, 1238.78 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"
 
-[node name="Eye3" parent="Enemies" instance=ExtResource( 7 )]
+[node name="Eye3" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 863.424, 748.581 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"
 
-[node name="Eye4" parent="Enemies" instance=ExtResource( 7 )]
+[node name="Eye4" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 764.874, 488.431 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"

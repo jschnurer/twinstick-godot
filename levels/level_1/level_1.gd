@@ -2,6 +2,8 @@ extends Navigation2D
 
 var dialog_scene = preload("res://dialog/DialogMessage.tscn")
 var what_was_that_shown = false
+var has_keycard = false
+var is_gate_open = false
 
 func _ready():
 	for child_node in $Enemies.get_children():
