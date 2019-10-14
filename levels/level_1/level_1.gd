@@ -24,3 +24,10 @@ func what_was_that():
 	var dialog = dialog_scene.instance()
 	dialog.message = "What the?! Are these things coming out of the EnigmaTech facility?"
 	add_child(dialog)
+
+func _on_KeyReader_gate_opened():
+	get_node("Gate").queue_free()
+	is_gate_open = true
+
+func _on_ScientistWithKeycard_interacted():
+	has_keycard = true

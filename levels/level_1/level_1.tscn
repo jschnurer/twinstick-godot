@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://levels/level_1/level_1.gd" type="Script" id=1]
 [ext_resource path="res://images/levels/1/CityBG.png" type="Texture" id=2]
@@ -6,43 +6,65 @@
 [ext_resource path="res://props/Fire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/level_1/DeadScientist.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Utilities/InteractMessage.gd" type="Script" id=6]
-[ext_resource path="res://images/props/key_reader.png" type="Texture" id=7]
-[ext_resource path="res://levels/level_1/KeyReader.gd" type="Script" id=8]
-[ext_resource path="res://Utilities/InteractableHint.tscn" type="PackedScene" id=9]
-[ext_resource path="res://player/Dude.tscn" type="PackedScene" id=10]
-[ext_resource path="res://enemies/Eye.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/level_1/ScientistWithKeycard.gd" type="Script" id=7]
+[ext_resource path="res://images/props/key_reader.png" type="Texture" id=8]
+[ext_resource path="res://levels/level_1/KeyReader.gd" type="Script" id=9]
+[ext_resource path="res://Utilities/InteractableHint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://player/Dude.tscn" type="PackedScene" id=11]
+[ext_resource path="res://enemies/Eye.tscn" type="PackedScene" id=12]
 
-[sub_resource type="NavigationPolygon" id=8]
+[sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 725.255, 1069.91, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 943.628, 1193.9, 943.628, 610.957, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166, 723.405, 340.767, 1339.66, 474.012, 1376.67, 610.957, 941.778, 472.161, 730.256, 12.966, 940.756, 15.83, 59.0325, 1062.51, 33.1238, 968.127 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 7, 6, 3, 8 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 13, 14, 8, 15 ), PoolIntArray( 12, 11, 16, 17, 15, 2 ), PoolIntArray( 2, 15, 8, 3 ), PoolIntArray( 0, 3, 18, 19 ) ]
 outlines = [ PoolVector2Array( 730.256, 12.966, 940.756, 15.83, 941.778, 472.161, 1339.66, 474.012, 1376.67, 610.957, 943.628, 610.957, 943.628, 1193.9, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 725.255, 1069.91, 59.0325, 1062.51, 33.1238, 968.127, 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 723.405, 340.767, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166 ) ]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 362, 91 )
-
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 230, 236 )
+extents = Vector2( 362, 208.999 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 230, 285 )
+extents = Vector2( 230, 320 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 359, 285 )
+extents = Vector2( 230, 285 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 359, 167 )
+extents = Vector2( 359, 285 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 343, 31 )
+extents = Vector2( 359, 167 )
 
 [sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 343, 31 )
+
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 19.2224, 97.7791 )
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 19.2224, 66.7018 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 19.2224, 50.5692 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 12.5342, 77.6629 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 364, 25.867 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 227, 25.867 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 24, 536 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 24, 725 )
+
+[sub_resource type="CapsuleShape2D" id=16]
 radius = 14.9219
 height = 15.8403
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 113.147, 24.5191 )
 
 [node name="Level_1_City" type="Navigation2D"]
@@ -53,61 +75,7 @@ __meta__ = {
 
 [node name="NavPolygon" type="NavigationPolygonInstance" parent="."]
 visible = false
-navpoly = SubResource( 8 )
-
-[node name="Terrain" type="StaticBody2D" parent="."]
-editor/display_folded = true
-visible = false
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 354, 91 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 1177, 231 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 1179, 904 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 358, 634 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 359, 1240 )
-shape = SubResource( 5 )
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 1060, 1364 )
-shape = SubResource( 6 )
-
-[node name="RubbleCollision" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 1382.02, 535.811 )
-rotation = -0.306498
-shape = SubResource( 7 )
-
-[node name="RubbleCollision2" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 1385.19, 1270.44 )
-rotation = -0.306498
-shape = SubResource( 7 )
-
-[node name="RubbleCollision3" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 25.4127, 274.01 )
-rotation = -0.306498
-shape = SubResource( 7 )
-
-[node name="RubbleCollision4" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 12.1163, 1007.53 )
-rotation = -0.306498
-shape = SubResource( 7 )
-
-[node name="RubbleCollision5" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( -38.1912, 976.727 )
-rotation = 1.04674
-shape = SubResource( 7 )
+navpoly = SubResource( 1 )
 
 [node name="City" type="TextureRect" parent="."]
 margin_right = 40.0
@@ -125,6 +93,133 @@ texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Terrain" type="StaticBody2D" parent="."]
+editor/display_folded = true
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 356, -27.0005 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1178, 145 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1179, 904 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 358, 634 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 359, 1240 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1060, 1364 )
+shape = SubResource( 7 )
+
+[node name="RubbleCollision" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1382.02, 535.811 )
+rotation = -0.306498
+shape = SubResource( 8 )
+
+[node name="RubbleCollision2" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1385.19, 1270.44 )
+rotation = -0.306498
+shape = SubResource( 8 )
+
+[node name="RubbleCollision3" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 25.4127, 274.01 )
+rotation = -0.306498
+shape = SubResource( 8 )
+
+[node name="RubbleCollision4" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 12.1163, 1007.53 )
+rotation = -0.306498
+shape = SubResource( 8 )
+
+[node name="RubbleCollision5" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( -38.1912, 976.727 )
+rotation = 1.04674
+shape = SubResource( 8 )
+
+[node name="RubbleCollision6" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 96, -248 )
+rotation = -0.523598
+scale = Vector2( 1, 1 )
+shape = SubResource( 9 )
+
+[node name="RubbleCollision7" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 5.99999, -327 )
+rotation = 1.57079
+scale = Vector2( 1, 1 )
+shape = SubResource( 9 )
+
+[node name="RubbleCollision8" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1386, -199 )
+rotation = 2.09439
+scale = Vector2( 1, 1 )
+shape = SubResource( 9 )
+
+[node name="RubbleCollision10" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1230.92, -983.491 )
+rotation = 1.91097
+scale = Vector2( 1, 1 )
+shape = SubResource( 10 )
+
+[node name="RubbleCollision11" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 814.273, -1033.79 )
+rotation = 1.5708
+scale = Vector2( 1, 1 )
+shape = SubResource( 10 )
+
+[node name="EnigmaTechSign" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 844.314, -736.368 )
+rotation = 1.5708
+scale = Vector2( 1, 1 )
+shape = SubResource( 11 )
+
+[node name="RubbleCollision12" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 545.358, -1027.83 )
+rotation = 1.5708
+scale = Vector2( 1, 1 )
+shape = SubResource( 10 )
+
+[node name="RubbleCollision9" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1356, -283 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+shape = SubResource( 9 )
+
+[node name="FenceFrontLeft" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 361, -372.133 )
+shape = SubResource( 12 )
+
+[node name="FenceFrontRight" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1178, -372 )
+shape = SubResource( 13 )
+
+[node name="FenceLeft" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( -22, -893 )
+shape = SubResource( 14 )
+
+[node name="FenceRight" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 1420, -885 )
+shape = SubResource( 14 )
+
+[node name="FenceTop" type="CollisionShape2D" parent="Terrain"]
+position = Vector2( 695, -1245 )
+rotation = 1.57079
+shape = SubResource( 15 )
+
+[node name="EnigmaTechBuilding" type="CollisionPolygon2D" parent="Terrain"]
+position = Vector2( 695, -1245 )
+rotation = 1.57079
+polygon = PoolVector2Array( -155.001, 413, -152.999, -463, 118.001, -464, 117, -103, 43.0002, -103, 44, 5.00006, 117, 5.00024, 116.999, 414 )
 
 [node name="Fires" type="Node2D" parent="."]
 editor/display_folded = true
@@ -171,6 +266,12 @@ position = Vector2( 985.703, 495.58 )
 script = ExtResource( 6 )
 message = "This dead dude looks like a scientist. Could he be from EnigmaTech? Are they who caused all this? The facility is up north. I should check it out."
 
+[node name="ScientistWithKeycard" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1313.63, 1202.98 )
+script = ExtResource( 7 )
+message = "Whoever was inside didn't want to open the door for this guy. Hey, there's something in his labcoat pocket. [Acquired Keycard]"
+find_keycard_message = "There's something in his labcoat pocket. [Acquired Keycard]"
+
 [node name="DeadScientist2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 101.491, 213.031 )
 script = ExtResource( 6 )
@@ -182,20 +283,22 @@ script = ExtResource( 6 )
 message = "Another dead scientist. Looks like he was trying to get back inside EnigmaTech."
 
 [node name="KeyReader" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 967.327, -356.133 )
-texture = ExtResource( 7 )
-script = ExtResource( 8 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
 no_card_message = "It's a keycard reader. It probably controls the gate. Maybe I can find a keycard around here somewhere."
 card_message = "Open sesame."
 gate_already_open_message = "The gate's already open. I don't need to use this anymore."
 
-[node name="InteractableHint" parent="KeyReader" instance=ExtResource( 9 )]
+[node name="InteractableHint" parent="KeyReader" instance=ExtResource( 10 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KeyReader/InteractableHint"]
 position = Vector2( 0, 4.61035 )
-shape = SubResource( 9 )
+shape = SubResource( 16 )
 
 [node name="Gate" type="ColorRect" parent="."]
+editor/display_folded = true
 margin_left = 725.0
 margin_top = -396.0
 margin_right = 951.0
@@ -206,32 +309,34 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/StaticBody2D"]
 position = Vector2( 113.05, 24.5074 )
-shape = SubResource( 10 )
+shape = SubResource( 17 )
 
 [node name="Dude" parent="." groups=[
 "dude",
-] instance=ExtResource( 10 )]
+] instance=ExtResource( 11 )]
 position = Vector2( 100.238, 1005.25 )
 
 [node name="Enemies" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Eye" parent="Enemies" instance=ExtResource( 11 )]
+[node name="Eye" parent="Enemies" instance=ExtResource( 12 )]
 position = Vector2( 593.624, 1012.08 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"
 
-[node name="Eye2" parent="Enemies" instance=ExtResource( 11 )]
+[node name="Eye2" parent="Enemies" instance=ExtResource( 12 )]
 position = Vector2( 886.224, 1238.78 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"
 
-[node name="Eye3" parent="Enemies" instance=ExtResource( 11 )]
+[node name="Eye3" parent="Enemies" instance=ExtResource( 12 )]
 position = Vector2( 863.424, 748.581 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"
 
-[node name="Eye4" parent="Enemies" instance=ExtResource( 11 )]
+[node name="Eye4" parent="Enemies" instance=ExtResource( 12 )]
 position = Vector2( 764.874, 488.431 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"
+[connection signal="interacted" from="ScientistWithKeycard" to="." method="_on_ScientistWithKeycard_interacted"]
+[connection signal="gate_opened" from="KeyReader" to="." method="_on_KeyReader_gate_opened"]

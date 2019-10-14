@@ -9,19 +9,23 @@ onready var tween = $Tween
 export var message = ""
 export var resume_on_close = true
 var controls_enabled = false
+var just_ready = false
 
 func _ready():
 	get_tree().paused = true
 	label.text = message
 	tween.interpolate_property(label, "percent_visible", 0, 1, message.length() / 35.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
+	just_ready = true
 
 func _process(delta):
-	if Input.is_action_just_pressed("action"):
+	if Input.is_action_just_pressed("action") && !just_ready:
 		if button_prompt.visible:
 			close()
 		else:
 			finish()
+	else:
+		just_ready = false
 
 func close():
 	emit_signal("closed")

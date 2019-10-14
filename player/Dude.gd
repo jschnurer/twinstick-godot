@@ -80,7 +80,6 @@ func shoot_bullet():
 	tracer.position = position + Vector2(14 * shoot_velocity.x, 14 * shoot_velocity.y)
 	tracer.velocity = shoot_velocity
 	get_parent().add_child(tracer)
-	get_parent().move_child(tracer, 1)
 	
 	is_shoot_cooling = true
 	$ShootCooldown.start()
