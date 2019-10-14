@@ -4,9 +4,14 @@
 [ext_resource path="res://images/levels/1/CityBG.png" type="Texture" id=2]
 [ext_resource path="res://props/Fire.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/level_1/DeadScientist.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Dude.tscn" type="PackedScene" id=5]
-[ext_resource path="res://dialog/DialogMessage.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Utilities/InteractMessage.gd" type="Script" id=5]
+[ext_resource path="res://player/Dude.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemies/Eye.tscn" type="PackedScene" id=7]
+
+[sub_resource type="NavigationPolygon" id=8]
+vertices = PoolVector2Array( 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 725.255, 1069.91, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 943.628, 1193.9, 943.628, 610.957, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166, 723.405, 340.767, 1339.66, 474.012, 1376.67, 610.957, 941.778, 472.161, 730.256, 12.966, 940.756, 15.83, 59.0325, 1062.51, 33.1238, 968.127 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 7, 6, 3, 8 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 13, 14, 8, 15 ), PoolIntArray( 12, 11, 16, 17, 15, 2 ), PoolIntArray( 2, 15, 8, 3 ), PoolIntArray( 0, 3, 18, 19 ) ]
+outlines = [ PoolVector2Array( 730.256, 12.966, 940.756, 15.83, 941.778, 472.161, 1339.66, 474.012, 1376.67, 610.957, 943.628, 610.957, 943.628, 1193.9, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 725.255, 1069.91, 59.0325, 1062.51, 33.1238, 968.127, 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 723.405, 340.767, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166 ) ]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 362, 91 )
@@ -29,24 +34,15 @@ extents = Vector2( 343, 31 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 19.2224, 97.7791 )
 
-[sub_resource type="NavigationPolygon" id=8]
-vertices = PoolVector2Array( 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 725.255, 1069.91, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 943.628, 1193.9, 943.628, 610.957, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166, 723.405, 340.767, 1339.66, 474.012, 1376.67, 610.957, 941.778, 472.161, 730.256, 12.966, 940.756, 15.83, 59.0325, 1062.51, 33.1238, 968.127 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 7, 6, 3, 8 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 13, 14, 8, 15 ), PoolIntArray( 12, 11, 16, 17, 15, 2 ), PoolIntArray( 2, 15, 8, 3 ), PoolIntArray( 0, 3, 18, 19 ) ]
-outlines = [ PoolVector2Array( 730.256, 12.966, 940.756, 15.83, 941.778, 472.161, 1339.66, 474.012, 1376.67, 610.957, 943.628, 610.957, 943.628, 1193.9, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 725.255, 1069.91, 59.0325, 1062.51, 33.1238, 968.127, 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 723.405, 340.767, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166 ) ]
-
 [node name="Level_1_City" type="Navigation2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Background" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="NavPolygon" type="NavigationPolygonInstance" parent="."]
+visible = false
+navpoly = SubResource( 8 )
 
 [node name="Terrain" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -102,9 +98,13 @@ position = Vector2( -38.1912, 976.727 )
 rotation = 1.04674
 shape = SubResource( 7 )
 
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
-visible = false
-navpoly = SubResource( 8 )
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Fires" type="Node2D" parent="."]
 editor/display_folded = true
@@ -146,18 +146,18 @@ position = Vector2( -18.2773, 63.025 )
 [node name="Fire3" parent="Fires" instance=ExtResource( 3 )]
 position = Vector2( -16.3849, -711.102 )
 
-[node name="DeadScientist" parent="." instance=ExtResource( 4 )]
+[node name="DeadScientist1" parent="." instance=ExtResource( 4 )]
 position = Vector2( 985.703, 495.58 )
+script = ExtResource( 5 )
+message = "This dead dude looks like a scientist. Could he be from EnigmaTech? Are they who caused all this? The facility is up north. I should check it out."
 
 [node name="Dude" parent="." groups=[
 "dude",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 6 )]
 position = Vector2( 100.238, 1005.25 )
 
-[node name="DialogMessage" parent="." instance=ExtResource( 6 )]
-message = "Ouch! That was one hell of a car crash. What is going on in this city!? At least I have my trusty pistol. I can shoot it using the arrow keys."
-
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Eye" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 593.624, 1012.08 )

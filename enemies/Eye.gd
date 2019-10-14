@@ -12,7 +12,7 @@ var current_point
 var target_direction : Vector2
 var velocity : Vector2
 var speed : int = 75
-var health = 5
+var health = 3
 var is_active = false
 
 func _ready():

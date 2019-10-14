@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://images/dead/scientist1.png" type="Texture" id=1]
-[ext_resource path="res://levels/level_1/DeadScientist.gd" type="Script" id=2]
-[ext_resource path="res://InteractableHint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Utilities/InteractableHint.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.72857
@@ -10,9 +9,8 @@ height = 32.0205
 
 [node name="DeadScientist" type="Sprite"]
 texture = ExtResource( 1 )
-script = ExtResource( 2 )
 
-[node name="InteractableHint" parent="." instance=ExtResource( 3 )]
+[node name="InteractableHint" parent="." instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableHint"]
 rotation = 1.5708

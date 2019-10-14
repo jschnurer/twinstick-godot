@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var tracer_scene = preload("res://Tracer.tscn")
+var tracer_scene = preload("res://player/Tracer.tscn")
 
 var velocity = Vector2(0, 0)
 var speed = 160
