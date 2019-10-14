@@ -1,8 +1,11 @@
 extends KinematicBody2D
+signal killed
 
 var dir_sprite = preload("res://images/enemies/eye/eye_left.png")
 var nav : Navigation2D
+export var nav_node_path : String
 var dude
+export var dude_node_path : String
 var path : PoolVector2Array
 var target_ix : int
 var current_point
@@ -13,8 +16,8 @@ var health = 5
 var is_active = false
 
 func _ready():
-	dude = get_parent().get_node("Dude")
-	nav = get_parent()
+	dude = get_node(dude_node_path)
+	nav = get_node(nav_node_path)
 
 func _physics_process(delta):
 	if !nav:
@@ -56,6 +59,7 @@ func take_damage(amount):
 	health -= amount
 	if health <= 0:
 		queue_free()
+		emit_signal("killed", self)
 	else:
 		show_damage()
 	
