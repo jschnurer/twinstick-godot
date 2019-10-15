@@ -3,7 +3,7 @@ extends KinematicBody2D
 var tracer_scene = preload("res://player/Tracer.tscn")
 
 var velocity = Vector2(0, 0)
-var speed = 160
+var speed = 190
 var shoot_velocity = Vector2(0, 0)
 var is_shooting = false
 var is_shoot_cooling = false

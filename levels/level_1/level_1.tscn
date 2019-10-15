@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://levels/level_1/level_1.gd" type="Script" id=1]
 [ext_resource path="res://images/levels/1/CityBG.png" type="Texture" id=2]
@@ -12,11 +12,13 @@
 [ext_resource path="res://Utilities/InteractableHint.tscn" type="PackedScene" id=10]
 [ext_resource path="res://player/Dude.tscn" type="PackedScene" id=11]
 [ext_resource path="res://enemies/Eye.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Utilities/LevelTransition.tscn" type="PackedScene" id=13]
+[ext_resource path="res://levels/level_2/level_2.tscn" type="PackedScene" id=14]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 725.255, 1069.91, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 943.628, 1193.9, 943.628, 610.957, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166, 723.405, 340.767, 1339.66, 474.012, 1376.67, 610.957, 941.778, 472.161, 730.256, 12.966, 940.756, 15.83, 59.0325, 1062.51, 33.1238, 968.127 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 7, 6, 3, 8 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 13, 14, 8, 15 ), PoolIntArray( 12, 11, 16, 17, 15, 2 ), PoolIntArray( 2, 15, 8, 3 ), PoolIntArray( 0, 3, 18, 19 ) ]
-outlines = [ PoolVector2Array( 730.256, 12.966, 940.756, 15.83, 941.778, 472.161, 1339.66, 474.012, 1376.67, 610.957, 943.628, 610.957, 943.628, 1193.9, 1334.11, 1197.6, 1374.82, 1321.59, 723.405, 1327.15, 725.255, 1069.91, 59.0325, 1062.51, 33.1238, 968.127, 68.2856, 951.471, 57.1819, 925.563, 725.255, 927.413, 723.405, 340.767, 75.688, 338.916, 33.1238, 187.166, 723.405, 187.166 ) ]
+vertices = PoolVector2Array( 133.52, -248.805, 85.2853, -337.739, 734.952, -331.709, 732.477, -246.209, 1319.93, 1203.75, 1363.1, 1322.47, 734.985, 1318.15, 929.248, 1212.38, 739.302, 1056.97, 933.109, 599.459, 1325.34, 482.267, 1363.61, 604.242, 924.59, 490.844, 83.1242, 333.883, 39.9546, 195.741, 732.827, 193.582, 734.985, 333.883, 938.243, -323.015, 1314.21, -328.859, 1301.95, -189.366, 928.267, -189.366, 1173.95, -1111.97, 1172.01, -1209.37, 1386.29, -1203.52, 1384.34, -408.728, 940.191, -412.624, 712.272, -1113.91, 11.4253, -410.091, 12.93, -1211.32, 266.174, -1207.42, 266.174, -1110.02, 734.952, -411.599, 726.161, 929.586, 89.5996, 929.624, 74.4903, 1054.82, 42.1131, 970.635 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 7, 6, 8, 9 ), PoolIntArray( 10, 11, 9, 12 ), PoolIntArray( 13, 14, 15, 16 ), PoolIntArray( 17, 18, 19, 20 ), PoolIntArray( 21, 22, 23, 24 ), PoolIntArray( 21, 24, 25, 26 ), PoolIntArray( 27, 28, 29, 30 ), PoolIntArray( 31, 27, 30, 26, 25 ), PoolIntArray( 2, 31, 25, 17, 20 ), PoolIntArray( 15, 3, 2, 20, 12, 16 ), PoolIntArray( 32, 16, 12, 9, 8 ), PoolIntArray( 33, 32, 8, 34, 35 ) ]
+outlines = [ PoolVector2Array( 1301.95, -189.366, 928.267, -189.366, 924.59, 490.844, 1325.34, 482.267, 1363.61, 604.242, 933.109, 599.459, 929.248, 1212.38, 1319.93, 1203.75, 1363.1, 1322.47, 734.985, 1318.15, 739.302, 1056.97, 74.4903, 1054.82, 42.1131, 970.635, 89.5996, 929.624, 726.161, 929.586, 734.985, 333.883, 83.1242, 333.883, 39.9546, 195.741, 732.827, 193.582, 732.477, -246.209, 133.52, -248.805, 85.2853, -337.739, 734.952, -331.709, 734.952, -411.599, 11.4253, -410.091, 12.93, -1211.32, 266.174, -1207.42, 266.174, -1110.02, 712.272, -1113.91, 1173.95, -1111.97, 1172.01, -1209.37, 1386.29, -1203.52, 1384.34, -408.728, 940.191, -412.624, 938.243, -323.015, 1314.21, -328.859 ) ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 362, 208.999 )
@@ -67,7 +69,10 @@ height = 15.8403
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 113.147, 24.5191 )
 
-[node name="Level_1_City" type="Navigation2D"]
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 55.2156, 26.7117 )
+
+[node name="Level" type="Navigation2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -150,49 +155,41 @@ shape = SubResource( 8 )
 [node name="RubbleCollision6" type="CollisionShape2D" parent="Terrain"]
 position = Vector2( 96, -248 )
 rotation = -0.523598
-scale = Vector2( 1, 1 )
 shape = SubResource( 9 )
 
 [node name="RubbleCollision7" type="CollisionShape2D" parent="Terrain"]
 position = Vector2( 5.99999, -327 )
 rotation = 1.57079
-scale = Vector2( 1, 1 )
 shape = SubResource( 9 )
 
 [node name="RubbleCollision8" type="CollisionShape2D" parent="Terrain"]
 position = Vector2( 1386, -199 )
 rotation = 2.09439
-scale = Vector2( 1, 1 )
 shape = SubResource( 9 )
 
 [node name="RubbleCollision10" type="CollisionShape2D" parent="Terrain"]
 position = Vector2( 1230.92, -983.491 )
 rotation = 1.91097
-scale = Vector2( 1, 1 )
 shape = SubResource( 10 )
 
 [node name="RubbleCollision11" type="CollisionShape2D" parent="Terrain"]
 position = Vector2( 814.273, -1033.79 )
 rotation = 1.5708
-scale = Vector2( 1, 1 )
 shape = SubResource( 10 )
 
 [node name="EnigmaTechSign" type="CollisionShape2D" parent="Terrain"]
 position = Vector2( 844.314, -736.368 )
 rotation = 1.5708
-scale = Vector2( 1, 1 )
 shape = SubResource( 11 )
 
 [node name="RubbleCollision12" type="CollisionShape2D" parent="Terrain"]
 position = Vector2( 545.358, -1027.83 )
 rotation = 1.5708
-scale = Vector2( 1, 1 )
 shape = SubResource( 10 )
 
 [node name="RubbleCollision9" type="CollisionShape2D" parent="Terrain"]
 position = Vector2( 1356, -283 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 shape = SubResource( 9 )
 
 [node name="FenceFrontLeft" type="CollisionShape2D" parent="Terrain"]
@@ -275,7 +272,7 @@ find_keycard_message = "There's something in his labcoat pocket. [Acquired Keyca
 [node name="DeadScientist2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 101.491, 213.031 )
 script = ExtResource( 6 )
-message = "He's dead. Looks like he died running."
+message = "There was nowhere to go..."
 
 [node name="DeadScientist3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 896.736, -310.848 )
@@ -311,10 +308,8 @@ color = Color( 0, 0, 0, 1 )
 position = Vector2( 113.05, 24.5074 )
 shape = SubResource( 17 )
 
-[node name="Dude" parent="." groups=[
-"dude",
-] instance=ExtResource( 11 )]
-position = Vector2( 100.238, 1005.25 )
+[node name="Dude" parent="." instance=ExtResource( 11 )]
+position = Vector2( 745.62, -1102.88 )
 
 [node name="Enemies" type="Node2D" parent="."]
 editor/display_folded = true
@@ -329,14 +324,92 @@ position = Vector2( 886.224, 1238.78 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"
 
+[node name="Eye5" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 1312.95, 1237.35 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
 [node name="Eye3" parent="Enemies" instance=ExtResource( 12 )]
 position = Vector2( 863.424, 748.581 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"
 
 [node name="Eye4" parent="Enemies" instance=ExtResource( 12 )]
-position = Vector2( 764.874, 488.431 )
+position = Vector2( 938.144, 491.295 )
 nav_node_path = "../.."
 dude_node_path = "../../Dude"
+
+[node name="Eye6" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 908.072, -263.358 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye7" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 965.351, -300.59 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye10" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 913.8, -1039.49 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye11" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 913.8, -1039.49 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye12" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 1188.74, -907.749 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye15" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 1059.86, -999.396 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye17" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 131.939, -561.21 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye18" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 90.412, -1126.84 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye16" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 1021.2, -830.422 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye13" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 706.163, -715.864 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye14" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 628.836, -1013.72 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye9" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 134.803, 240.698 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="Eye8" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 252.225, -306.318 )
+nav_node_path = "../.."
+dude_node_path = "../../Dude"
+
+[node name="LevelTransition" parent="." instance=ExtResource( 13 )]
+editor/display_folded = true
+level_scene = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransition"]
+position = Vector2( 743.877, -1177.9 )
+shape = SubResource( 18 )
 [connection signal="interacted" from="ScientistWithKeycard" to="." method="_on_ScientistWithKeycard_interacted"]
 [connection signal="gate_opened" from="KeyReader" to="." method="_on_KeyReader_gate_opened"]
